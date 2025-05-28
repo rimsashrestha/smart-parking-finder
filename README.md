@@ -116,10 +116,10 @@ If results flash and disappear in Streamlit:
 ##**Authors**
 This project was collaboratively developed as part of the UC Davis MSBA program.
 
-| Name             | Role                            | GitHub                                  |
-|------------------|----------------------------------|------------------------------------------|
-| Rimsa Shrestha   | ML & Streaming Pipeline Lead     | [@rimsashrestha](https://github.com/rimsashrestha) |
-| Jiyeon Woo       | Repository Owner & Reviewer      | [@jiyeonwoo](https://github.com/jiyeonwoo) |
-| [Add Name]       | [Add Role]                       | [@username](https://github.com/username) |
+| Name             | GitHub                                   |
+|------------------|------------------------------------------|
+| Rimsa Shrestha   | [@rimsashrestha](https://github.com/rimsashrestha) |
+| Jiyeon Woo       | [@jiyeonwoo](https://github.com/jiyeonwoo) |
+| [Add Name]       | [@username](https://github.com/username) |
 
 
