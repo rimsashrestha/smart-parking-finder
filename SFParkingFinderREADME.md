@@ -55,15 +55,15 @@ Realistic Simulation
 **Installation**
 
 1. Clone the repository:
-
+```
 git clone https://github.com/yourusername/smart-parking-finder.git
 
 cd smart-parking-finder
-
+```
 2. Install dependencies:
-
+```
 pip install -r requirements.txt
-
+```
 3. Set up Spark (if running locally):
 
 Download Spark from https://spark.apache.org/downloads.html
@@ -85,12 +85,9 @@ Run the Jupyter notebook or Python script and use the interactive widget to:
 4. Click "Find Parking"
 
 **Programmatic Use**
-
+```
 from parking_finder import comprehensive_parking_search_ml_fixed
-
-
-**Search for parking in the Mission district**
-
+# Search for parking in the Mission district
 results = comprehensive_parking_search_ml_fixed(
     neighborhood="Mission",
     search_date="2025-05-28",
@@ -98,7 +95,7 @@ results = comprehensive_parking_search_ml_fixed(
     dest_lat=37.7599,
     dest_lon=-122.4148
 )
-
+```
 **Sample Output**
 
 The system will:
