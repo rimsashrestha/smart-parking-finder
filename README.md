@@ -1,6 +1,7 @@
-**Project: Smart Parking System — Real-Time Parking Intelligence in San Francisco**
+# Project: Smart Parking System — Real-Time Parking Intelligence in San Francisco
 
-# Smart Parking Availability System
+## Smart Parking Availability System
+
 A real-time parking recommendation engine for San Francisco that:
 - Streams synthetic parking data via Kafka
 - Predicts spot availability using an XGBoost model
@@ -20,6 +21,7 @@ This system combines machine learning, real-time data streaming, and geospatial 
 ---
 
 ##  Project Structure
+```
 smart-parking-system/
 │
 ├── data/
@@ -40,7 +42,7 @@ smart-parking-system/
 ├── streamlit_app.py
 ├── requirements.txt
 └── README.md
-
+```
 
 ---
 
@@ -53,36 +55,45 @@ smart-parking-system/
 ### Setup Steps
 
 1. Clone the repo
+```
 git clone https://github.com/jiyeonwoo/BigDataProject.git
 cd BigDataProject
-
+```
 2. Create and activate virtual environment
+```
 python3 -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
-
+```
 3. Install dependencies
+```
 pip install -r requirements.txt
+```
 
-**### How to Run the System**
+### How to Run the System
 
 1. Prepare ML Model
+```
 python src/recommend.py
-
+```
 2. Download & Clean Data
+```
 python src/ingest.py
-
+```
 3. Start Kafka Producer (Simulated Live Stream)
+```
 python src/produce_stream.py
-
+```
 4. Start Kafka Consumer (Prediction Logger)
+```
 python src/consume_and_query.py
 # or
 python src/write_predictions.py
-
+```
 5. Launch Streamlit Web App
+```
 streamlit run streamlit_app.py
-
-##**Features**
+```
+## Features
 - User inputs current latitude and longitude
 - Filters recent_predictions.csv for unoccupied spots
 - Calculates:
@@ -92,7 +103,7 @@ streamlit run streamlit_app.py
   - Top 5 closest unoccupied spots
   - (Optional) interactive map with markers
 
-##**Example**
+## Example
 User Location: Latitude = 37.7942, Longitude = -122.4063
 1. 📍 LARKIN ST #7 (Tenderloin)
    🕓 Updated: 2025-05-27 22:55:49 — Weekday
@@ -102,18 +113,18 @@ User Location: Latitude = 37.7942, Longitude = -122.4063
    🕓 Updated: 2025-05-27 22:55:47 — Weekday
    📏 Distance: 1150.4 meters (~3 min drive)
 
-##**Notes**
+## Notes
 If results flash and disappear in Streamlit:
 - Ensure the Kafka consumer script is continuously running
 -Make sure data/recent_predictions.csv is updating in real time
 
-##**Future Improvements**
+## Future Improvements 
 - Clickable location input on map
 - Real-time traffic integration
 - Scheduled cleanup of stale predictions
 - Dockerized deployment for reproducibility
 
-##**Authors**
+## Authors
 This project was collaboratively developed as part of the UC Davis MSBA program.
 
 | Name             | GitHub                                   |
