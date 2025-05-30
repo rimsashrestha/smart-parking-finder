@@ -1,4 +1,5 @@
 
+#src/recommend.py
 import pandas as pd
 import numpy as np
 import joblib
@@ -92,66 +93,3 @@ def predict_occupancy(model, pipeline, new_data):
 if __name__ == "__main__":
     train_and_save_model()
 
-#  recommend.py (TensorFlow version)
-# import pandas as pd
-# import numpy as np
-# import joblib
-# import os
-
-# from ingest import load_and_prepare_data
-
-# from sklearn.model_selection import train_test_split
-# from sklearn.preprocessing import StandardScaler
-# from tensorflow.keras.models import Sequential
-# from tensorflow.keras.layers import Dense
-# from tensorflow.keras.callbacks import EarlyStopping
-# from tensorflow.keras.models import load_model
-
-# def load_and_prepare_data():
-#     df = pd.read_csv('data/parking_data.csv')
-
-#     # Select useful features manually
-#     df = df[['post_id', 'latitude', 'longitude', 'street_name', 'street_num', 'analysis_neighborhood']].dropna()
-
-#     # Create a dummy target: simulate "occupied" as random
-#     np.random.seed(42)
-#     df['occupied'] = np.random.choice([0, 1], size=len(df))
-
-#     return df
-
-# def train_and_save_model():
-#     df = load_and_prepare_data()
-#     X = df[['latitude', 'longitude']]  # Example features
-#     y = df['occupied']
-
-#     scaler = StandardScaler()
-#     X_scaled = scaler.fit_transform(X)
-
-#     X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
-
-#     model = Sequential([
-#         Dense(16, activation='relu', input_shape=(2,)),
-#         Dense(8, activation='relu'),
-#         Dense(1, activation='sigmoid')
-#     ])
-
-#     model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-#     model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=10, callbacks=[EarlyStopping(patience=3)])
-
-#     # Save
-#     model.save('models/tf_model.h5')
-#     joblib.dump(scaler, 'models/scaler.joblib')
-#     print("✅ Model and pipeline saved successfully.")
-
-# def load_model_and_pipeline():
-#     model = load_model('models/tf_model.h5')
-#     scaler = joblib.load('models/scaler.joblib')
-#     return model, scaler
-
-# def predict_occupancy(model, scaler, row):
-#     X = scaler.transform([[row['latitude'], row['longitude']]])
-#     prob = model.predict(X)[0][0]
-#     return int(prob > 0.5), round(prob, 2)
-
-# if __name__ == "__main__":
-#     train_and_save_model()

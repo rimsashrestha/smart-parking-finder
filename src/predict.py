@@ -1,3 +1,4 @@
+#src/predict.py
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
@@ -27,7 +28,7 @@ def train_rf_model(df):
 
     return model, features
 
-# ✅ Run model training and save
+# Run model training and save
 if __name__ == "__main__":
     df = pd.read_csv("data/simulated_occupancy.csv")
     model, features = train_rf_model(df)
