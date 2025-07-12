@@ -4,7 +4,7 @@
 
 A real-time parking recommendation engine for San Francisco that:
 - Streams synthetic parking data via Kafka
-- Predicts spot availability using an XGBoost model
+- Predicts spot availability using a machine learning model (XGBoost)
 - Displays nearest available parking locations on an interactive Streamlit web app
 
 ---
@@ -22,25 +22,25 @@ This system combines machine learning, real-time data streaming, and geospatial 
 
 ##  Project Structure
 ```
-smart-parking-system/
-│
-├── data/
-│ ├── parking_inventory.csv
-│ └── recent_predictions.csv
-│
-├── models/
-│ ├── xgb_model.joblib
-│ └── pipeline.joblib
-│
-├── src/
-│ ├── ingest.py
-│ ├── recommend.py
-│ ├── produce_stream.py
-│ ├── consume_and_query.py
-│ └── write_predictions.py
-│
-├── streamlit_app.py
-├── requirements.txt
+BigDataProject/
+├── Prototype 1: Scalable Smart Parking Forecasting/
+├── Prototype 2: Real-Time Parking Predictor/
+│   ├── data/
+│   │   ├── parking_inventory.csv
+│   │   └── recent_predictions.csv
+│   ├── models/
+│   │   ├── xgb_model.joblib
+│   │   └── pipeline.joblib
+│   ├── outputs/
+│   ├── src/
+│   │   ├── ingest.py
+│   │   ├── recommend.py
+│   │   ├── produce_stream.py
+│   │   ├── consume_and_query.py
+│   │   └── write_predictions.py
+│   ├── main.py
+│   ├── requirements.txt
+│   └── streamlit_app.py
 └── README.md
 ```
 
@@ -58,6 +58,7 @@ smart-parking-system/
 ```
 git clone https://github.com/jiyeonwoo/BigDataProject.git
 cd BigDataProject
+cd Prototype 2: Real-Time Parking Predictor
 ```
 2. Create and activate virtual environment
 ```
@@ -86,7 +87,7 @@ python src/produce_stream.py
 4. Start Kafka Consumer (Prediction Logger)
 ```
 python src/consume_and_query.py
-# or
+#or
 python src/write_predictions.py
 ```
 5. Launch Streamlit Web App
@@ -101,22 +102,21 @@ streamlit run streamlit_app.py
   - Approximate drive time (based on 30m/h)
 - Displays:
   - Top 5 closest unoccupied spots
-  - (Optional) interactive map with markers
+  - Interactive map with markers
 
 ## Example
 User Location: Latitude = 37.7942, Longitude = -122.4063
 1. 📍 LARKIN ST #7 (Tenderloin)
-   🕓 Updated: 2025-05-27 22:55:49 — Weekday
-   📏 Distance: 728.5 meters (~2 min drive)
+   
+      Updated: 2025-05-27 22:55:49 — Weekday
+   
+      Distance: 728.5 meters (~2 min drive)
 
-2. 📍 MISSION ST #10 (SoMa)
-   🕓 Updated: 2025-05-27 22:55:47 — Weekday
-   📏 Distance: 1150.4 meters (~3 min drive)
-
-## Notes
-If results flash and disappear in Streamlit:
-- Ensure the Kafka consumer script is continuously running
--Make sure data/recent_predictions.csv is updating in real time
+3. 📍 MISSION ST #10 (SoMa)
+ 
+      Updated: 2025-05-27 22:55:47 — Weekday
+   
+      Distance: 1150.4 meters (~3 min drive)
 
 ## Future Improvements 
 - Clickable location input on map
@@ -125,12 +125,12 @@ If results flash and disappear in Streamlit:
 - Dockerized deployment for reproducibility
 
 ## Authors
-This project was collaboratively developed as part of the UC Davis MSBA program.
+This project was collaboratively developed for Big Data BAX 423.
 
 | Name             | GitHub                                   |
 |------------------|------------------------------------------|
 | Rimsa Shrestha   | [@rimsashrestha](https://github.com/rimsashrestha) |
-| Jiyeon Woo       | [@jiyeonwoo](https://github.com/jiyeonwoo) |
-| [Add Name]       | [@username](https://github.com/username) |
-
-
+| Jiyeon (Jenna) Woo       | [@jiyeonwoo](https://github.com/jiyeonwoo) |
+| Kaylyn Nguyen    |                               |
+| Katrin Maliatski    |                               |
+| Christina Zhu   |                               |
