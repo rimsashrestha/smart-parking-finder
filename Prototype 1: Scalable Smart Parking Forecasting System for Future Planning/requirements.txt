@@ -1,0 +1,6 @@
+pyspark
+tensorflow
+geopy
+folium
+pandas
+numpy
