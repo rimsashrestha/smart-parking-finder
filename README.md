@@ -131,4 +131,4 @@ This project was collaboratively developed for Big Data BAX 423.
 |------------------|------------------------------------------|
 | Rimsa Shrestha   | [@rimsashrestha](https://github.com/rimsashrestha) |
 | Jiyeon (Jenna) Woo       | [@jiyeonwoo](https://github.com/jiyeonwoo) |
-| Kaylyn Nguyen    |                               |
+| Kaylyn Nguyen    | [@kaylynguyen97]|                       
